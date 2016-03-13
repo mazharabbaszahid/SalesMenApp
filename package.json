@@ -1,0 +1,20 @@
+{
+  "name": "salesAppTwo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "app.js"
+  },
+  "author": "mazhar",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3",
+    "firebase": "^2.3.2",
+    "mongoose": "^4.3.6",
+    "q": "^1.4.1",
+    "tsc": "^1.20150623.0"
+  }
+}

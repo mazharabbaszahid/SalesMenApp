@@ -1,0 +1,63 @@
+<ion-view class="login1" title="SignUp Page" ion-nav-button="true">
+    <ion-nav-buttons side="right">
+        <a class="button button-clear" ui-sref="signin">Sign In...</a>
+    </ion-nav-buttons>
+    <ion-content >
+        <div class="page">
+        <div class="list" id="list1">
+            <form ng-submit="signupUser(user)">
+            <label class="item item-input">
+                <span class="input-label">First Name</span>
+                <input type="text" ng-model="user.FirstName">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Last Name</span>
+                <input type="text" ng-model="user.LastName">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Email</span>
+                <input type="email" ng-model="user.Email">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Password</span>
+                <input type="password" ng-model="user.Password">
+            </label>
+            <button type='submit' class="button button-block button-calm" ng-disabled="!user.Email||!user.FirstName||!user.Email||!user.Password">Sign Up</button>
+            </form>
+
+        </div>
+        
+        </div>
+        <!--<style>
+           #list1{
+               width:30%;
+               float: right;
+               right: 12%;
+               margin-top:22%;
+               text-align: center;
+               text-decoration: none;
+               text-anchor: none;
+               
+               
+               /*width:30%;
+               margin: auto;*/
+               vertical-align: bottom;
+
+           }
+           
+            .login1 {   
+                
+                 
+                background-image: url('./adminPortal/img/signin.jpg');
+                background-repeat: no-repeat;
+                background-position: center;
+                
+                
+                
+                    }
+                    .item .item-input input-label{
+    background: transparent;
+}
+            </style>-->
+    </ion-content>
+</ion-view>

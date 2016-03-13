@@ -1,0 +1,54 @@
+
+<ion-view class="login1" hid-back-button="true" title="Sign in">
+    <ion-nav-buttons side="right">
+        <a class="button button-clear" ui-sref="signup">Sign Up...</a>
+    </ion-nav-buttons>
+    <ion-content>
+        
+        <div class="list page" id="list1">
+            <form ng-submit="doLogin(user)">
+           
+            <label class="item item-input">
+                <span class="input-label">Email</span>
+                <input type="email" ng-model="user.email">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Password</span>
+                <input type="password" ng-model="user.password">
+            </label>
+            <button type='submit' class="button button-block button-calm" ng-disabled="!user.email||!user.password">Sign in</button>
+            </form>
+           
+        </div>
+        
+        
+        <!--<style>
+           #list1{
+               width:30%;
+               float: right;
+               right: 12%;
+               margin-top:30%;
+               text-align: center;
+
+               
+               
+               /*width:30%;
+               margin: auto;*/
+               vertical-align: bottom;
+
+           }
+           form{
+               transform: true;
+           }
+            .login1 {   
+                
+                 
+                background-image: url('./adminPortal/img/signin.jpg');
+                background-repeat: no-repeat;
+                background-position: center;
+                
+                
+                    }
+            </style>-->
+    </ion-content>
+</ion-view>

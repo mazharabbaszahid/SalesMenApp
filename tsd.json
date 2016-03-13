@@ -1,0 +1,36 @@
+{
+  "version": "v4",
+  "repo": "borisyankov/DefinitelyTyped",
+  "ref": "master",
+  "path": "typings",
+  "bundle": "typings/tsd.d.ts",
+  "installed": {
+    "node/node.d.ts": {
+      "commit": "3a666d1bff92e944488c25599ec56a4937c17c4e"
+    },
+    "serve-static/serve-static.d.ts": {
+      "commit": "3a666d1bff92e944488c25599ec56a4937c17c4e"
+    },
+    "express/express.d.ts": {
+      "commit": "3a666d1bff92e944488c25599ec56a4937c17c4e"
+    },
+    "mime/mime.d.ts": {
+      "commit": "3a666d1bff92e944488c25599ec56a4937c17c4e"
+    },
+    "body-parser/body-parser.d.ts": {
+      "commit": "3a666d1bff92e944488c25599ec56a4937c17c4e"
+    },
+    "mongoose/mongoose.d.ts": {
+      "commit": "3a666d1bff92e944488c25599ec56a4937c17c4e"
+    },
+    "firebase/firebase.d.ts": {
+      "commit": "3a666d1bff92e944488c25599ec56a4937c17c4e"
+    },
+    "q/Q.d.ts": {
+      "commit": "3a666d1bff92e944488c25599ec56a4937c17c4e"
+    },
+    "bcrypt-nodejs/bcrypt-nodejs.d.ts": {
+      "commit": "3a86e056dc018541d82dd74639fca18ba8d605da"
+    }
+  }
+}

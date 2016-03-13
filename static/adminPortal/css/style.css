@@ -1,0 +1,29 @@
+/* Empty. Add your own CSS if you like */
+body{
+    height:100%;
+    background-color:  lightblue;
+}
+.login {    
+background-image: url('./adminPortal/signin.jpg');
+}
+h2{
+    text-align: center;
+}
+.page{
+            width:50%;
+            margin:0 auto;
+            border:5px double skyblue;
+            margin-top:30px;
+            padding-bottom: 30px;
+            
+}
+/*.ion-ios-person{
+  size: 100px  
+}*/
+.tble{
+    width:50%;
+    padding:10px;
+}
+.tble1{
+    width:20%;
+}

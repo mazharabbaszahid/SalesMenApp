@@ -1,0 +1,67 @@
+<ion-view title=" Welcom to Salesmen">
+    <ion-nav-buttons side="left">
+        <a class="button button-clear" ui-sref="home">Home</a>
+    </ion-nav-buttons>
+
+    <ion-nav-buttons side="right">
+        <a class="button button-clear" ng-click="logout()">Log Out</a>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="page">
+            <h2>Welcome to Salesmmen Page</h2>
+
+
+     <!--<div class="list">
+
+    <div class="item item-button-right" ng-repeat="salesman in salesmenInfo.salesmen|orderBy:createdOn:reverse">
+        {{salesman.name|uppercase}}
+        <button class="button button-positive">
+            <i >Raise Order</i>            
+        </button>
+        <button class="button button-positive left">
+            <i >View Orders</i>
+        </button>
+        
+    </div>
+
+    </div>-->
+            <table class='item item-input'>
+                <tbody>
+                    <tr  ng-repeat="salesman in salesmenInfo.salesmen|orderBy:createdOn:reverse">
+                    <td class='tble'>
+                        {{salesman.name|uppercase}}
+                    </td> 
+                    <td class='tble1'>
+                        <button class="button button-positive" ui-sref="order">Raise Order</button>
+                    </td>
+                    
+                    <td class='tble1'>
+                            <button class="button button-positive" >View Orders</button>
+                    </td>
+                    <hr>
+                    </tr>
+
+                </tbody>
+            </table>
+                    
+            <!--<div>
+
+                <ul class="list">
+                    
+                        <li class="item">
+                                <i class="icon ion-ios-person"></i>
+                            
+                            <i>
+                                
+                            </i>
+                                <a class="button button-positive">Raise Order</a>
+                                <a class="button button-positive">View Order</a>
+                        </li>
+                    
+                </ul>
+
+            </div>
+        </div>-->
+
+    </ion-content>
+</ion-view>

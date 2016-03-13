@@ -1,0 +1,29 @@
+<ion-view title="Company Page">
+    <ion-nav-buttons side="right">
+        <a class="button button-clear" ng-click="logout()">Log Out</a>
+    </ion-nav-buttons>
+    <ion-content>
+        
+        <div class="page">
+            
+            <div class="list" id="list1">
+                <form ng-submit="saveCompany(company)">
+                    <label class="item item-input">
+                        <span class="input-label">Company Name</span>
+                        <input type="text" ng-model="company.CompanyName">
+                    </label>
+                    <!--<label class="item item-input">
+                        <span class="input-label">Company Owner</span>
+                        <input type="text" ng-model="company.CompanyOwner">
+                    </label>-->
+                    <label class="item item-input">
+                        <span class="input-label">Company Address</span>
+                        <input type="text" ng-model="company.CompanyAddress">
+                    </label>
+                    
+                    <button type='submit' class="button button-block button-calm" ng-disabled="!company.CompanyName||!company.CompanyAddress">Save Company</button>
+                </form>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
