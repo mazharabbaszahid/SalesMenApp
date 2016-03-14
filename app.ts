@@ -7,11 +7,12 @@ import express = require('express');
 import path = require('path');
 import bodyParser = require('body-parser');
 import mongoose = require('mongoose');
-
+let cors  = require('cors');
 
 let app = express();
 app.set('port',3000);
 
+app.use( cors() );
 
 let staticDir = path.resolve(__dirname,'./static');
 app.use(express.static(staticDir))
