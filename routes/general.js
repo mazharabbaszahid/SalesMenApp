@@ -81,10 +81,11 @@ router.get('/viewCompany/:AdminId', function (req, res) {
     });
 });
 router.post('/salesmen', function (req, res) {
-    // console.log(req.body)
+    console.log('req body' + req.body);
     UserModel_1.saveSalesmen(req.body.data)
         .then(function (comInstance) {
         res.send({ status: true, data: comInstance });
+        console.log('instance' + comInstance._id);
     }, function (err) {
         res.send({ status: false, message: err });
     });
@@ -108,6 +109,20 @@ router.post('/order', function (req, res) {
     UserModel_1.saveProduct(req.body.data)
         .then(function (order) {
         res.send({ status: true, data: order });
+    }, function (err) {
+        res.send({ status: false, message: err });
+    });
+});
+router.get('/Order/:id', function (req, res) {
+    var id = req.params._id;
+    UserModel_1.findSalesmen({ _id: id })
+        .then(function (OrderInstance) {
+        if (OrderInstance) {
+            console.log('salesmen');
+            console.log(OrderInstance);
+            res.send({ Orders: OrderInstance });
+            return;
+        }
     }, function (err) {
         res.send({ status: false, message: err });
     });

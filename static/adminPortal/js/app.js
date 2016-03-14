@@ -23,15 +23,6 @@ angular.module('starter', ['ionic'])
         controller:'homeController',
         
     })
-//     .state('home.reg-company',{
-//         url:'/reg-company',
-//         views:{
-//             'homeContent':{
-//            templateUrl:'/adminPortal/templates/reg-company.html',
-//         }
-// }
-        
-//     })
     .state('regCompany',{
         url:'/company',
         templateUrl:'/adminPortal/templates/reg-company.html',
@@ -57,8 +48,13 @@ angular.module('starter', ['ionic'])
         templateUrl:'adminPortal/templates/orders.html',
         controller:'ordersController'
     })
+    .state('viewOrder',{
+        url:'viewOrder',
+        templateUrl:'adminPortal/templates/view_orders.html',
+        controller:'viewordersController'
+    })
     
-    $urlRouterProvider.otherwise('/signup')
+    $urlRouterProvider.otherwise('/signin')
     $httpProvider.interceptors.push('httpInterceptor');
 })
 .run(function($rootScope,$state){

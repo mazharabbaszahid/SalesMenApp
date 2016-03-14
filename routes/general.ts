@@ -4,7 +4,7 @@ import Firebase = require('firebase');
 import bcrypt = require('bcrypt-nodejs');
 let UserModel = require('../DBRepo/UserModel')
 let ref = new Firebase('https://salesmem.firebaseio.com//users');
-import {saveUser,saveCompany ,findUser,saveSalesmen,findCompany,findSalesmen,saveProduct} from "../DBRepo/UserModel"; 
+import {saveUser,saveCompany ,findUser,saveSalesmen,findCompany,findSalesmen,saveProduct,findProduct} from "../DBRepo/UserModel"; 
 let router = express.Router();
 
 router.post('/signup', (req: express.Request, res: express.Response) => {
@@ -94,10 +94,11 @@ console.log(AdminId)
         });
 });
 router.post('/salesmen', (req: express.Request, res: express.Response) => {
-   // console.log(req.body)
+   console.log('req body'+req.body)
             saveSalesmen(req.body.data)
                 .then((comInstance) => {
                     res.send({ status: true, data: comInstance });
+                    console.log('instance'+comInstance._id)
                 }, (err) => {
                     res.send({ status: false, message: err })
                 })
@@ -134,7 +135,21 @@ router.post('/order', (req: express.Request, res: express.Response) => {
     );
 
 
-
+router.get('/Order/:id', (req: express.Request, res: express.Response) => {
+ let id = req.params._id;
+    findSalesmen({_id : id })
+        .then((OrderInstance) => {
+            if (OrderInstance) {
+                console.log('salesmen')
+                console.log(OrderInstance)
+                res.send({Orders:OrderInstance});
+                return;
+            }
+           
+        }, (err) => {
+            res.send({ status: false, message: err });
+        });
+});
 
 
 module.exports = router;

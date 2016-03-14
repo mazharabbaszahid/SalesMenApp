@@ -63,6 +63,27 @@ angular.module("starter")
                 });
             return deferred.promise;
         }
+        
+        //==============================//
+        //==========view orders========//
+        
+        this.getOrders = function () {
+           var deferred = $q.defer();
+            
+           //var AdminId=localStorage.getItem('AdminId')
+           
+        $http.get('/api/viewOrder/'+ id).then(
+
+                function (success) {
+                    orderInfo = success.data;                   
+                    deferred.resolve(orderInfo);
+                    
+                },
+                function (err) {
+                    deferred.resolve(err);
+                });
+            return deferred.promise;
+        }
          
      });
     

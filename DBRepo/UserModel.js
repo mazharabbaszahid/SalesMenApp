@@ -188,6 +188,26 @@ function saveProduct(product) {
     return deffered.promise;
 }
 exports.saveProduct = saveProduct;
+function findProduct(query) {
+    var deffered = q.defer();
+    Order
+        .find(query, function (err, record) {
+        console.log('query ' + query);
+        console.log('error ' + err);
+        console.log('record ' + record);
+        if (err) {
+            console.log('Error in finding Order');
+            console.log(err);
+            deffered.reject("Error in finding Order through deffered");
+        }
+        else {
+            deffered.resolve(record);
+            console.log(record);
+        }
+    });
+    return deffered.promise;
+}
+exports.findProduct = findProduct;
 exports.userModel = UserModel;
 exports.userSchema = UserSchema;
 exports.Salesmen = Salesmen;

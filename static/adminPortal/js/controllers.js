@@ -120,9 +120,10 @@ salesService.getCompanyInfo().then(function(companyInfo){
     $scope.salesmen={};
     $scope.saveSalesmen=function(salesmen){
         $scope.salesmen.AdminId=localStorage.getItem('AdminId');
+        
     $http.post('/api/salesmen',{data:salesmen})
     .success(function(response){
-        console.log(response)
+        console.log(response.data._id)
         $rootScope.salesmen=response.data;
         $state.go('home');
     })
@@ -139,9 +140,9 @@ salesService.getSalesmen().then(function(SalesmenInfo){
 })
 
 .controller('ordersController',function($scope,$http,$state,$rootScope){
-    $scope.orders={};
+    $scope.order={};
     $scope.saveOrder=function(order){
-        $scope.orders.AdminId=localStorage.getItem('AdminId');
+        $scope.order.AdminId=localStorage.getItem('AdminId');
         
     $http.post('/api/order',{data:order})
     .success(function(response){
@@ -154,4 +155,9 @@ salesService.getSalesmen().then(function(SalesmenInfo){
     });    
 
     };
+})
+.controller('viewordersController',function($scope,$rootScope,$http,salesService){
+salesService.getOrders().then(function(OrdersInfo){
+    $scope.OrdersInfo=OrdersInfo;
+})
 })

@@ -14,15 +14,15 @@ let UserSchema = new Schema({
     CompanyId:String,
     SalesMen:{type:[]},
     FirebaseToken:String
-})
+});
 
 let companySchema = new Schema({
     CompanyName:{type:String,require:true},
     CompanyAddress:String,
     SalesMen:String,
     AdminId:String,    
-    CompanyCreatedOn:{type:Date,default:Date.now()},  
-})
+    CompanyCreatedOn:{type:Date,default:Date.now()}
+});
 
 let SalesmenSchema = new Schema({
     name:String,
@@ -31,7 +31,7 @@ let SalesmenSchema = new Schema({
     AdminId:String,
     location:String,
     createdOn:{type:Date,default:Date.now()}
-})
+});
 
 
 let orderShcema =new Schema({
@@ -42,7 +42,7 @@ let orderShcema =new Schema({
    ProductQty:Number,
    OrderOn:{type:Date,default:Date.now()}
     
-})
+});
 
 
 
@@ -81,7 +81,7 @@ function saveUser(userProps){
             console.log(err);
             deffered.reject('Error occured while savin user')
         }else{
-            console.log('User saved successfully')
+            console.log('User saved successfully');
             deffered.resolve(data)
         }
     });
@@ -203,8 +203,27 @@ function saveProduct(product){
     return deffered.promise;
 }
 
+function findProduct(query){
+    let deffered = q.defer();
+    Order
+    .find(query,function(err,record){
+        console.log('query '+ query)
+        console.log('error '+ err)
+        console.log('record '+ record)
+        if(err){
+            console.log('Error in finding Order');
+            console.log(err);
+            deffered.reject("Error in finding Order through deffered");
+        }
+        else{
+            deffered.resolve(record);
+            console.log(record)
+        }
+    });
+    return deffered.promise;
+}
 
-export {saveUser,findUser,saveCompany,findCompany,saveSalesmen,findSalesmen,saveProduct}
+export {saveUser,findUser,saveCompany,findCompany,saveSalesmen,findSalesmen,saveProduct,findProduct}
 
 exports.userModel=UserModel;
 exports.userSchema = UserSchema;
