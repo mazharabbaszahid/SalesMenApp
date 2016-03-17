@@ -136,7 +136,11 @@ salesService.getCompanyInfo().then(function(companyInfo){
 .controller('viewsalesmenController',function($scope,$rootScope,$http,salesService){
 salesService.getSalesmen().then(function(SalesmenInfo){
     $scope.salesmenInfo=SalesmenInfo;
+    
 })
+   $scope.order=function(index){
+       $
+   }
 })
 
 .controller('ordersController',function($scope,$http,$state,$rootScope){
@@ -160,4 +164,5 @@ salesService.getSalesmen().then(function(SalesmenInfo){
 salesService.getOrders().then(function(OrdersInfo){
     $scope.OrdersInfo=OrdersInfo;
 })
+
 })

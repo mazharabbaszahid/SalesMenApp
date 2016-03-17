@@ -1,7 +1,7 @@
 /// <reference path="./typings/tsd.d.ts" />
 
 import{findUser} from './DBRepo/UserModel';
-var GeneralRoutes = require('./routes/general')
+var GeneralRoutes = require('./routes/general');
 
 import express = require('express');
 import path = require('path');

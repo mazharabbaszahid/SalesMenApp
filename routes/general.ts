@@ -135,9 +135,10 @@ router.post('/order', (req: express.Request, res: express.Response) => {
     );
 
 
-router.get('/Order/:id', (req: express.Request, res: express.Response) => {
- let id = req.params._id;
-    findSalesmen({_id : id })
+router.get('/Order/:AdminId', (req: express.Request, res: express.Response) => {
+ //let id = req.params._id;
+ let AdminId = req.params.AdminId;
+    findProduct({AdminId : AdminId })
         .then((OrderInstance) => {
             if (OrderInstance) {
                 console.log('salesmen')

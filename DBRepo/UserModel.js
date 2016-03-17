@@ -16,9 +16,10 @@ var UserSchema = new Schema({
 var companySchema = new Schema({
     CompanyName: { type: String, require: true },
     CompanyAddress: String,
-    SalesMen: String,
+    SalesMen: [],
     AdminId: String,
-    CompanyCreatedOn: { type: Date, default: Date.now() },
+    Orders: [],
+    CompanyCreatedOn: { type: Date, default: Date.now() }
 });
 var SalesmenSchema = new Schema({
     name: String,
@@ -26,6 +27,7 @@ var SalesmenSchema = new Schema({
     password: String,
     AdminId: String,
     location: String,
+    Orders: [],
     createdOn: { type: Date, default: Date.now() }
 });
 var orderShcema = new Schema({
@@ -81,8 +83,6 @@ function saveCompany(compProps) {
     var company = new companyModel(compProps);
     //company.AdminId=company._id;
     company.save(function (err, data) {
-        company.save(function (err, data) {
-        });
         if (err) {
             console.log('Error in saving Company');
             console.log(err);
@@ -90,9 +90,10 @@ function saveCompany(compProps) {
         }
         else {
             console.log(data);
-            // UserModel.update({_id:data._id},{$set:{CompanyId:data._id}},function(e,d){
-            //     //console.log(e,d)
-            // })
+            //  Upadting of Company Id in User data when saving New Company......//
+            UserModel.update({ _id: data.AdminId }, { $set: { CompanyId: data._id } }, function (e, d) {
+                console.log(e, d);
+            });
             console.log('Company saved successfully');
             deffered.resolve(data);
         }
@@ -143,6 +144,12 @@ function saveSalesmen(salesmenProps) {
             deffered.reject('Error occured while savin user');
         }
         else {
+            //
+            companyModel.update({ AdminId: data.AdminId }, { $push: { SalesMen: data._id } }, function (e, d) {
+                UserModel.update({ _id: data.AdminId }, { $push: { SalesMen: data._id } }, function (err, data) {
+                    console.log(e, d);
+                });
+            });
             console.log('User saved successfully');
             deffered.resolve(data);
         }
@@ -181,6 +188,11 @@ function saveProduct(product) {
             deffered.reject('Error occured while savin Product');
         }
         else {
+            companyModel.update({ AdminId: data.AdminId }, { $push: { Orders: data._id } }, function (e, d) {
+                Salesmen.update({ AdminId: data.AdminId }, { $push: { Orders: data._id } }, function (err, data) {
+                    console.log(e, d);
+                });
+            });
             console.log('Product saved successfully');
             deffered.resolve(data);
         }

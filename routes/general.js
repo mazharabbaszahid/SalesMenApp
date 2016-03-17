@@ -113,9 +113,10 @@ router.post('/order', function (req, res) {
         res.send({ status: false, message: err });
     });
 });
-router.get('/Order/:id', function (req, res) {
-    var id = req.params._id;
-    UserModel_1.findSalesmen({ _id: id })
+router.get('/Order/:AdminId', function (req, res) {
+    //let id = req.params._id;
+    var AdminId = req.params.AdminId;
+    UserModel_1.findProduct({ AdminId: AdminId })
         .then(function (OrderInstance) {
         if (OrderInstance) {
             console.log('salesmen');
