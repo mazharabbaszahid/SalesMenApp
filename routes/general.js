@@ -128,4 +128,23 @@ router.get('/Order/:AdminId', function (req, res) {
         res.send({ status: false, message: err });
     });
 });
+router.post('/login', function (req, res) {
+    var Salesman = req.body.data;
+    UserModel_1.findSalesman({ Email: Salesman.email })
+        .then(function (salesmanInstance) {
+        if (!salesmanInstance) {
+            res.send("No Salesman found with supplied email");
+            return;
+        }
+        if (Salesman.password == salesmanInstance.password) {
+            res.send({ message: 'Loged in successfully', salesman: salesmanInstance });
+            console.log(salesmanInstance);
+        }
+        else {
+            res.send("Wrong Password");
+        }
+    }, function (err) {
+        res.send({ status: false, message: err });
+    });
+});
 module.exports = router;

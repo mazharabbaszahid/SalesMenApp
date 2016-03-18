@@ -4,7 +4,7 @@ import Firebase = require('firebase');
 import bcrypt = require('bcrypt-nodejs');
 let UserModel = require('../DBRepo/UserModel')
 let ref = new Firebase('https://salesmem.firebaseio.com//users');
-import {saveUser,saveCompany ,findUser,saveSalesmen,findCompany,findSalesmen,saveProduct,findProduct} from "../DBRepo/UserModel"; 
+import {saveUser,saveCompany ,findUser,saveSalesmen,findCompany,findSalesmen,saveProduct,findProduct,findSalesman} from "../DBRepo/UserModel"; 
 let router = express.Router();
 
 router.post('/signup', (req: express.Request, res: express.Response) => {
@@ -152,5 +152,41 @@ router.get('/Order/:AdminId', (req: express.Request, res: express.Response) => {
         });
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+router.post('/login', (req: express.Request, res: express.Response) => {
+    
+    let Salesman = req.body.data;
+    findSalesman({ Email: Salesman.email })
+        .then((salesmanInstance) => {
+            if (!salesmanInstance) {
+                res.send("No Salesman found with supplied email");
+                return;
+            }
+            if (Salesman.password==salesmanInstance.password)  {
+                res.send({ message: 'Loged in successfully', salesman:salesmanInstance });
+                console.log(salesmanInstance)
+
+            } else {
+                res.send("Wrong Password");
+            }
+        }, (err) => {
+            res.send({ status: false, message: err });
+        });
+});
 
 module.exports = router;

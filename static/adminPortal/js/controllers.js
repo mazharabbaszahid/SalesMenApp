@@ -7,7 +7,7 @@ angular.module('starter')
         $scope.user.AdminId=user._id;
         $http.post('/api/signin',{data:user})
         .success(function(response){
-            localStorage.setItem('AdminId',response.user._id) 
+            localStorage.setItem('AdminId',response.user._id) ;
 
             console.log(response.user._id) ;         
             if(response.token){
@@ -17,7 +17,7 @@ angular.module('starter')
                 // console.log($rootScope.currentUser)              
                 $state.go('regCompany')
             }else{
-                alert("'please Enter Correct Email and Password")
+                alert("'please Enter Correct Email and Password");
                 $scope.user="";
             }
         })
@@ -49,7 +49,7 @@ angular.module('starter')
 })
 .controller('signoutController',function($scope,$http,$state){
     $scope.signout=function(){
-        localStorage.removeItem('token')
+        localStorage.removeItem('token');
         $state.go('signin');
     }
 })
@@ -58,12 +58,12 @@ angular.module('starter')
          salesService.getUserInfo().then(function(userInfo){
             $scope.userInfo=userInfo;
                
-          })
+          });
           
           //-------------------------------------------
             $scope.logout=function(){
-                 localStorage.removeItem('token')
-                 localStorage.removeItem('AdminId')
+                 localStorage.removeItem('token');
+                 localStorage.removeItem('AdminId');
                     $state.go('signin');
                         
             }
@@ -76,13 +76,13 @@ angular.module('starter')
     
 salesService.getCompanyInfo().then(function(companyInfo){
          $scope.companyInfo=companyInfo;
-         console.log($scope.companyInfo)
+         console.log($scope.companyInfo);
          if(companyInfo){
              
              $state.go("home");
          }
-        
-     })
+
+     });
     
     
     
@@ -90,7 +90,7 @@ salesService.getCompanyInfo().then(function(companyInfo){
     
      $scope.company={};
     $scope.saveCompany=function(company){
-       $scope.company.AdminId=localStorage.getItem('AdminId')
+       $scope.company.AdminId=localStorage.getItem('AdminId');
     $http.post('/api/company',{data:company})
     .success(function(response){
 
@@ -123,7 +123,7 @@ salesService.getCompanyInfo().then(function(companyInfo){
         
     $http.post('/api/salesmen',{data:salesmen})
     .success(function(response){
-        console.log(response.data._id)
+        console.log(response.data._id);
         $rootScope.salesmen=response.data;
         $state.go('home');
     })
@@ -137,9 +137,9 @@ salesService.getCompanyInfo().then(function(companyInfo){
 salesService.getSalesmen().then(function(SalesmenInfo){
     $scope.salesmenInfo=SalesmenInfo;
     
-})
+});
    $scope.order=function(index){
-       $
+
    }
 })
 
@@ -150,7 +150,7 @@ salesService.getSalesmen().then(function(SalesmenInfo){
         
     $http.post('/api/order',{data:order})
     .success(function(response){
-        console.log(response)
+        console.log(response);
         $rootScope.orders=response.data;
         $state.go('viewSalesmen');
     })
@@ -165,4 +165,4 @@ salesService.getOrders().then(function(OrdersInfo){
     $scope.OrdersInfo=OrdersInfo;
 })
 
-})
+});

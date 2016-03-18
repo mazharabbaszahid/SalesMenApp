@@ -244,7 +244,30 @@ function findProduct(query){
     return deffered.promise;
 }
 
-export {saveUser,findUser,saveCompany,findCompany,saveSalesmen,findSalesmen,saveProduct,findProduct}
+
+
+
+
+function findSalesman(query){
+    let deffered = q.defer();
+    Salesmen
+    .findOne(query,function(err,record){
+        if(err){
+            console.log('Error in finding Salesman');
+            console.log(err);
+            deffered.reject("Error in finding Salesman through deffered");
+        }
+        else{
+            deffered.resolve(record);
+        }
+    });
+    return deffered.promise;
+}
+
+
+
+
+export {saveUser,findUser,saveCompany,findCompany,saveSalesmen,findSalesmen,saveProduct,findProduct,findSalesman}
 
 exports.userModel=UserModel;
 exports.userSchema = UserSchema;
