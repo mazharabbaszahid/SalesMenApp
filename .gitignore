@@ -1,1 +1,4 @@
 node_modules/
+myApp/plugins/
+myApp/www/platforms/
+myApp/www/lib/
