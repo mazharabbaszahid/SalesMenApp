@@ -1,2 +1,5 @@
 node_modules/
-myApp/
+myApp/plugins/
+myApp/www/platforms/
+myApp/www/lib/
+typings/
