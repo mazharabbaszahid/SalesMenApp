@@ -130,7 +130,7 @@ router.get('/Order/:AdminId', function (req, res) {
 });
 router.post('/login', function (req, res) {
     var Salesman = req.body.data;
-    UserModel_1.findSalesman({ Email: Salesman.email })
+    UserModel_1.findSalesman({ email: Salesman.email })
         .then(function (salesmanInstance) {
         if (!salesmanInstance) {
             res.send("No Salesman found with supplied email");

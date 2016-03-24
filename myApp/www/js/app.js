@@ -10,6 +10,11 @@ angular.module('starter', ['ionic'])
       url:'/login',
       templateUrl:'./templates/login.html',
       controller:'loginController'
+    })
+    .state('order',{
+      url:'/order',
+      templateUrl:"./templates/orders.html",
+      controller:'ordersController'
     });
     $urlRouterProvider.otherwise('login')
   });
