@@ -8,23 +8,17 @@
     </ion-nav-buttons>
     <ion-content>
         <div class="page">
-            <h2>Welcome to Salesmmen Page</h2>
+            <h2>Welcome to Salesman Page</h2>
+            <div class="list">
 
+                <div class="item item-button-right" ng-repeat="salesman in salesmenInfo.salesmen|orderBy:createdOn:reverse">
+                    {{salesman.name|uppercase}}
+                    <button class="button button-positive" ui-sref="viewOrder">
+                    <i>View Order</i>
+                    </button>
+                </div>
 
-     <!--<div class="list">
-
-    <div class="item item-button-right" ng-repeat="salesman in salesmenInfo.salesmen|orderBy:createdOn:reverse">
-        {{salesman.name|uppercase}}
-        <button class="button button-positive">
-            <i >Raise Order</i>            
-        </button>
-        <button class="button button-positive left">
-            <i >View Orders</i>
-        </button>
-        
-    </div>
-
-    </div>-->
+            <!--</div>
             <table class='item item-input'>
                 <tbody>
                     <tr  ng-repeat="salesman in salesmenInfo.salesmen|orderBy:createdOn:reverse">
@@ -38,30 +32,10 @@
                     <td class='tble1'>
                             <button class="button button-positive" ui-sref="viewOrder">View Orders</button>
                     </td>
-
                     </tr>
-
                 </tbody>
-            </table>
-                    
-            <!--<div>
-
-                <ul class="list">
-                    
-                        <li class="item">
-                                <i class="icon ion-ios-person"></i>
-                            
-                            <i>
-                                
-                            </i>
-                                <a class="button button-positive">Raise Order</a>
-                                <a class="button button-positive">View Order</a>
-                        </li>
-                    
-                </ul>
-
-            </div>
-        </div>-->
+            </table>                              
+            -->
 </div>
     </ion-content>
 </ion-view>
