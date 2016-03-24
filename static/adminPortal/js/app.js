@@ -5,7 +5,6 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('starter', ['ionic'])
     .config(function($urlRouterProvider, $stateProvider, $httpProvider, $ionicConfigProvider) {
-        //rgherfghfdghdgdfghdf
         $stateProvider
             .state('signin', {
                 url: '/signin',
@@ -21,7 +20,6 @@ angular.module('starter', ['ionic'])
                 url: '/',
                 templateUrl: '/adminPortal/templates/home.html',
                 controller: 'homeController',
-
             })
             .state('regCompany', {
                 url: '/company',
@@ -53,7 +51,6 @@ angular.module('starter', ['ionic'])
                 templateUrl: 'adminPortal/templates/view-orders.html',
                 controller: 'viewordersController'
             })
-
         $urlRouterProvider.otherwise('/signin')
         $httpProvider.interceptors.push('httpInterceptor');
     })
