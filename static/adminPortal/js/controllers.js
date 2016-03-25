@@ -104,11 +104,10 @@ angular.module('starter')
         };
     })
     .controller('viewsalesmenController', function($scope, $rootScope, $http, salesService) {
-        salesService.getSalesmen().then(function(SalesmenInfo) {
+           salesService.getSalesmen().then(function(SalesmenInfo) {
             $scope.salesmenInfo = SalesmenInfo;
         });
-        $scope.order = function(index) {
-        }
+        
     })
 
     // .controller('ordersController',function($scope,$http,$state,$rootScope){
@@ -128,6 +127,7 @@ angular.module('starter')
     // })
     .controller('viewordersController', function($scope, $rootScope, $http, salesService) {
         salesService.getOrders().then(function(OrdersInfo) {
+            console.log(OrdersInfo)
             $scope.OrdersInfo = OrdersInfo;
         })
     });

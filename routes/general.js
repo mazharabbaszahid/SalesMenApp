@@ -113,13 +113,14 @@ router.post('/order', function (req, res) {
         res.send({ status: false, message: err });
     });
 });
-router.get('/Order/:AdminId', function (req, res) {
-    //let id = req.params._id;
-    var AdminId = req.params.AdminId;
-    UserModel_1.findProduct({ AdminId: AdminId })
+router.get('/Order/:salesmenId', function (req, res) {
+    var id = req.params;
+    console.log(id);
+    var SalesmenId = req.params.salesmenId;
+    UserModel_1.findProduct({ SalesmenId: SalesmenId })
         .then(function (OrderInstance) {
         if (OrderInstance) {
-            console.log('salesmen');
+            console.log('salesmen order');
             console.log(OrderInstance);
             res.send({ Orders: OrderInstance });
             return;

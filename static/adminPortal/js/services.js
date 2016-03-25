@@ -55,9 +55,11 @@ angular.module("starter")
         //==========view orders========//        
         this.getOrders = function() {
             var deferred = $q.defer();
-            var AdminId = localStorage.getItem('AdminId')
-            $http.get('/api/viewOrder/' + AdminId).then(
+            var salesmenId = localStorage.getItem('salesmenId')
+            $http.get('/api/viewOrder/').then(
+            
                 function(success) {
+                      
                     orderInfo = success.data;
                     deferred.resolve(orderInfo);
                 },

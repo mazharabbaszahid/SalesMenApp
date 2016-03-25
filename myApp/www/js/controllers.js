@@ -7,15 +7,13 @@ angular.module('starter')
     $scope.Salesman={};
 
     $scope.doLogin=function(salesman){
-      $scope.Salesman.SalesmanId=salesman._id;
+      //$scope.Salesman.SalesmenId=salesman._id;
       $http.post('http://localhost:3000/api/login',{data:salesman})
         .success(function(response){
           console.log(response);
-
-
           console.log(response.salesman._id) ;
           if(response.salesman._id){
-            localStorage.setItem('SalesmanId',response.salesman._id);
+            localStorage.setItem('SalesmenId',response.salesman._id);
             localStorage.setItem('AdminId',response.salesman.AdminId);
             $rootScope.currentUser=response.salesman;
             // console.log($rootScope.currentUser)
@@ -35,16 +33,16 @@ angular.module('starter')
     $scope.order={};
     $scope.saveOrder=function(order){
       $scope.order.AdminId=localStorage.getItem('AdminId');
-
+      $scope.order.SalesmenId=localStorage.getItem(('SalesmenId'));
       $http.post('http://localhost:3000/api/order',{data:order})
         .success(function(response){
           console.log(response);
           $rootScope.orders=response.data;
-          $state.go('login');
+          $state.go('order');
+          $scope.order="";
         })
         .error(function(err){
           console.log(err)
         });
-
     };
   });
